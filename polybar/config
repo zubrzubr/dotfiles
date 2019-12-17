@@ -18,7 +18,7 @@
 
 [colors]
 ;background = ${xrdb:color0:#222}
-background = #222
+background = #08404d
 background-alt = #444
 ;foreground = ${xrdb:color7:#222}
 foreground = #dfdfdf
@@ -56,12 +56,12 @@ font-1 = unifont:fontformat=truetype:size=14:antialias=false;0
 font-2 = siji:pixelsize=16;1
 
 modules-left = bspwm i3
-modules-center = wired-network wireless-network 
+modules-center =
 modules-right = filesystem xbacklight alsa xkeyboard memory cpu battery temperature date powermenu
 
 tray-position = right
 tray-padding = 2
-tray-background = #0063ff
+tray-background = #616161
 
 ;wm-restack = bspwm
 ;wm-restack = i3
@@ -76,40 +76,6 @@ tray-background = #0063ff
 
 cursor-click = pointer
 cursor-scroll = ns-resize
-
-[module/wired-network]
-type = internal/network
-interface = enp031f6
-
-[module/wireless-network]
-type = internal/network
-interface = wlp5s0
-
-; Seconds to sleep between updates
-; ; Default: 1
-interval = 3.0
-;
-; ; Test connectivity every Nth update
-; ; A value of 0 disables the feature
-; ; NOTE: Experimental (needs more testing)
-; ; Default: 0
-ping-interval = 3
-;
-; ; @deprecated: Define min width using token specifiers (%downspeed:min% and %upspeed:min%)
-; ; Minimum output width of upload/download rate
-; ; Default: 3
-udspeed-minwidth = 5
-;
-; ; Accumulate values from all interfaces
-; ; when querying for up/downspeed rate
-; ; Default: false
-accumulate-stats = true
-;
-; ; Consider an `UNKNOWN` interface state as up.
-; ; Some devices like USB network adapters have 
-; ; an unknown state, even when they're running
-; ; Default: false
-unknown-as-up = true
 
 [module/xwindow]
 type = internal/xwindow
@@ -254,7 +220,7 @@ label = %percentage_used%%
 
 [module/wlan]
 type = internal/network
-interface = 
+interface =
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
@@ -276,7 +242,7 @@ ramp-signal-foreground = ${colors.foreground-alt}
 
 [module/eth]
 type = internal/network
-interface = 
+interface =
 interval = 3.0
 
 format-connected-underline = #55aa55

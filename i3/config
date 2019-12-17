@@ -174,13 +174,8 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-# bar {
-#        status_command i3status
-#}
-
 # Polybar start
 exec_always --no-startup-id ~/.config/polybar/launch.sh &
 
-
+# Network applet
+exec --no-startup-id nm-applet
