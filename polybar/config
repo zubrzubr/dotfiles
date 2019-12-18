@@ -56,7 +56,7 @@ font-0 = fixed:pixelsize=16;1
 font-1 = unifont:fontformat=truetype:size=14:antialias=false;0
 font-2 = siji:pixelsize=16;1
 
-modules-left = bspwm i3
+modules-left = i3
 modules-center = 
 modules-right = xkeyboard xbacklight date alsa memory cpu battery temperature powermenu
 
