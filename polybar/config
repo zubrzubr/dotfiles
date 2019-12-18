@@ -58,7 +58,7 @@ font-2 = siji:pixelsize=16;1
 
 modules-left = i3
 modules-center = 
-modules-right = xkeyboard xbacklight date alsa memory cpu battery temperature powermenu
+modules-right = pulseaudio xkeyboard xbacklight date memory cpu battery temperature powermenu
 
 tray-position = right
 tray-padding = 2
