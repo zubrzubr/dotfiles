@@ -177,9 +177,6 @@ bindsym $mod+r mode "resize"
 # Polybar start
 exec_always --no-startup-id ~/.config/polybar/launch.sh &
 
-# Network applet
-exec --no-startup-id nm-applet
-
 # Blueman applet
 exec --no-startup-id blueman-applet
 
