@@ -30,17 +30,17 @@ alert = #780814
 [bar/main]
 ;monitor = ${env:MONITOR:HDMI-1}
 width = 100%
-height = 40
+height = 56
 ;offset-x = 1%
 ;offset-y = 1%
 radius = 6.0
 fixed-center = false
-dpi = 120
+dpi = 168
 
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-line-size = 4
+line-size = 3
 line-color = #f00
 
 border-size = 0
@@ -52,13 +52,13 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = fixed:pixelsize=16;1
-font-1 = unifont:fontformat=truetype:size=14:antialias=false;0
-font-2 = siji:pixelsize=16;1
+font-0 = fixed:pixelsize=12;1
+font-1 = unifont:fontformat=truetype:size=10:antialias=false;0
+font-2 = siji:pixelsize=12;1
 
 modules-left = i3
 modules-center = 
-modules-right = pulseaudio xkeyboard xbacklight date memory cpu battery temperature powermenu
+modules-right = pulseaudio eth wlan xkeyboard xbacklight date memory cpu battery temperature powermenu
 
 tray-position = right
 tray-padding = 2
@@ -221,7 +221,7 @@ label = %percentage_used%%
 
 [module/wlan]
 type = internal/network
-interface =
+interface = wlp5s0
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
@@ -243,7 +243,7 @@ ramp-signal-foreground = ${colors.foreground-alt}
 
 [module/eth]
 type = internal/network
-interface =
+interface = enp0s31f6
 interval = 3.0
 
 format-connected-underline = #55aa55
@@ -422,3 +422,4 @@ margin-top = 5
 margin-bottom = 5
 
 ; vim:ft=dosini
+
