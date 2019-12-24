@@ -6,3 +6,4 @@ Collection of dotfiles for i3wm
 * alacritty terminal
 * nm-applet
 * blueman-applet
+* compton
