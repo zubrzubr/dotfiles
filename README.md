@@ -2,7 +2,7 @@
 Collection of dotfiles for i3wm
 
 # Before using config install next items:
-* nerd fonts: https://github.com/ryanoasis/nerd-fonts#font-installation
+* FontAwesome
 * kitty terminal
 * nm-applet
 * blueman-applet
@@ -10,4 +10,11 @@ Collection of dotfiles for i3wm
 * polybar
 
 # Additional info
-* https://www.nerdfonts.com/cheat-sheet
+* https://fontawesome.com/cheatsheet
+
+# Useful commands:
+
+To print unicode icon to console:
+```
+echo -e "\uf11c"
+```
