@@ -18,13 +18,13 @@
 
 [colors]
 ;background = ${xrdb:color0:#222}
-background = #1f1e1e
-background-alt = #444
+background = #00182e
+background-alt = #003954
 ;foreground = ${xrdb:color7:#222}
-foreground = #dfdfdf
-foreground-alt = #555
-primary = #6c80a3
-secondary = #657896
+foreground = #FFFFFF
+foreground-alt = #006975
+primary = #007E8D
+secondary = #00AD8C
 alert = #780814
 
 [bar/main]
@@ -34,7 +34,7 @@ height = 56
 ;offset-x = 1%
 ;offset-y = 1%
 radius = 6.0
-fixed-center = false
+fixed-center = true
 dpi = 168
 
 background = ${colors.background}
@@ -57,12 +57,12 @@ font-1 = unifont:fontformat=truetype:size=10:antialias=false;0
 font-2 = siji:pixelsize=12;1
 
 modules-left = i3
-modules-center = 
-modules-right = pulseaudio eth wlan xkeyboard xbacklight date memory cpu battery temperature powermenu
+modules-center = date
+modules-right = pulseaudio xkeyboard xbacklight memory cpu battery powermenu
 
 tray-position = right
 tray-padding = 2
-tray-background = #333333
+tray-scale = 1.0
 
 ;wm-restack = bspwm
 ;wm-restack = i3
@@ -208,7 +208,7 @@ type = internal/cpu
 interval = 2
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #f90000
+format-underline = #016e7a
 label = %percentage:2%%
 
 [module/memory]
@@ -277,7 +277,7 @@ label = %date% %time%
 type = internal/pulseaudio
 
 format-volume = <label-volume> <bar-volume>
-label-volume = VOL %percentage%%
+label-volume = %percentage%%
 label-volume-foreground = ${root.foreground}
 
 label-muted = 🔇 muted
@@ -422,4 +422,3 @@ margin-top = 5
 margin-bottom = 5
 
 ; vim:ft=dosini
-
