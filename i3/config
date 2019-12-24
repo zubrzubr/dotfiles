@@ -190,3 +190,7 @@ exec_always "setxkbmap -model pc104 -layout us,ru,ua -variant ,, -option grp:alt
 for_window [class="^.*"] border pixel 0
 gaps inner 5
 gaps outer 5
+
+# Compton
+exec --no-startup-id nitrogen --restore; sleep 1; compton -b --config ~/.config/compton/compton.conf
+        
