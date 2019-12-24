@@ -7,3 +7,4 @@ Collection of dotfiles for i3wm
 * nm-applet
 * blueman-applet
 * compton
+* polybar
