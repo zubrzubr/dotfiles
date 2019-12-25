@@ -11,6 +11,7 @@ Collection of dotfiles for i3wm
 
 # Additional info
 * https://fontawesome.com/cheatsheet
+* Install awesome fonts to /.local/share/fonts (https://fontawesome.com/how-to-use/on-the-desktop/setup/getting-started)
 
 # Useful commands:
 
