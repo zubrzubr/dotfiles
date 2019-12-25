@@ -58,11 +58,12 @@ font-2 = FontAwesome:pixelsize=11;1
 
 modules-left = i3
 modules-center = date
-modules-right = pulseaudio xkeyboard xbacklight memory cpu battery powermenu
+modules-right = powermenu pulseaudio xkeyboard xbacklight memory cpu battery 
 
 tray-position = right
 tray-padding = 2
 tray-scale = 1.0
+tray-maxsize = 36
 
 ;wm-restack = bspwm
 ;wm-restack = i3
