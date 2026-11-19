@@ -8,11 +8,13 @@ if command -v brew >/dev/null 2>&1; then
   brew bundle --file="$DOTFILES_DIR/homebrew/Brewfile"
 fi
 
-echo "2. Preparing config directories and backing up existing .zshrc..."
-mkdir -p ~/.config
-if [ -f ~/.zshrc ] && [ ! -L ~/.zshrc ]; then
-  mv ~/.zshrc ~/.zshrc.bak
-fi
+echo "2. Preparing config directories and backing up existing configs..."
+mkdir -p ~/.config ~/.config/git ~/.config/nvim
+for cfg in ~/.zshrc ~/.config/starship.toml ~/.config/git/config ~/.config/git/ignore; do
+  if [ -f "$cfg" ] && [ ! -L "$cfg" ]; then
+    mv "$cfg" "$cfg.bak"
+  fi
+done
 
 echo "3. Creating symlinks in $HOME via GNU Stow..."
 cd "$DOTFILES_DIR"
