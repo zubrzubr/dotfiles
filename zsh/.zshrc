@@ -47,5 +47,21 @@ fi
 # Starship (always at the end)
 eval "$(starship init zsh)"
 
+# Transient prompt (collapse executed prompts to ❯, restore full prompt on precmd)
+__starship_prompt="$PROMPT"
+__starship_rprompt="$RPROMPT"
+__starship_restore_prompt() {
+  PROMPT="$__starship_prompt"
+  RPROMPT="$__starship_rprompt"
+}
+autoload -Uz add-zsh-hook
+add-zsh-hook precmd __starship_restore_prompt
+zle-line-finish() {
+  PROMPT="%F{green}❯%f "
+  RPROMPT=""
+  zle reset-prompt
+}
+zle -N zle-line-finish
+
 # Load machine-specific local configuration (not tracked in git)
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local

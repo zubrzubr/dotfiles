@@ -45,6 +45,7 @@ On Linux, install the equivalent packages with your distro's package manager (`z
   - Optional cockpit modules toggled via environment variables in `~/.zshrc.local`:
     - `STARSHIP_COCKPIT_MEMORY_USAGE_ENABLED=true`
     - `STARSHIP_COCKPIT_BATTERY_ENABLED=true` (and `STARSHIP_COCKPIT_BATTERY_THRESHOLD`)
+    - `STARSHIP_COCKPIT_GCLOUD_ENABLED=true` (useful for work machines)
     - `STARSHIP_COCKPIT_KEYBOARD_LAYOUT_ENABLED=true` (supports macOS, KDE Plasma via `gdbus`, GNOME via `gsettings`, Sway, Hyprland, `fcitx5`, `ibus`, and X11 tools)
     - Layout alias overrides, e.g. `STARSHIP_COCKPIT_KEYBOARD_LAYOUT_US=ENG`
 - **Git** (`git/.config/git/config`):

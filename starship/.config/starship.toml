@@ -4,10 +4,13 @@ add_newline = true
 
 command_timeout = 1000
 scan_timeout = 30
+continuation_prompt = "[∙](bright-black) "
 
 format = """
 $os\
 $username\
+$hostname\
+$sudo\
 $directory\
 $git_branch\
 $git_commit\
@@ -26,17 +29,23 @@ $python\
 $package\
 $docker_context\
 $kubernetes\
+$terraform\
+$aws\
+${custom.gcloud}\
 $shell\
 $container\
+$line_break\
+$character\
+"""
+
+right_format = """
+$status\
+$cmd_duration\
 $jobs\
 ${custom.memory_usage}\
 ${custom.battery}\
 ${custom.keyboard_layout}\
 $time\
-$cmd_duration\
-$status\
-$line_break\
-$character\
 """
 
 palette = 'gruvbox_dark'
@@ -150,6 +159,18 @@ style_user = "fg:color_username"
 style_root = "bold fg:color_danger"
 format = '[ $user ]($style)'
 
+[hostname]
+ssh_only = true
+ssh_symbol = "󰣀 "
+style = "bold fg:color_username"
+format = '[$ssh_symbol$hostname ]($style)'
+
+[sudo]
+disabled = false
+symbol = "󰌋 "
+style = "bold fg:color_danger"
+format = '[ $symbol]($style)'
+
 [directory]
 style = "fg:color_directory"
 read_only_style = "fg:color_directory"
@@ -162,6 +183,11 @@ truncation_length = 3
 truncate_to_repo = true
 fish_style_pwd_dir_length = 0
 use_logical_path = true
+
+[directory.substitutions]
+"~/Projects" = "󰲋 Projects"
+"~/Documents" = "󰈙 Documents"
+"~/Downloads" = "󰇚 Downloads"
 
 [git_branch]
 symbol = ""
@@ -280,6 +306,28 @@ format = '[( $symbol( $context) )]($style)'
 symbol = "󱃾"
 style = "fg:color_kubernetes"
 format = '[( $symbol( $cluster) )]($style)'
+disabled = false
+
+[terraform]
+symbol = "󱁢"
+style = "fg:color_kubernetes"
+format = '[( $symbol( $workspace) )]($style)'
+
+[aws]
+symbol = ""
+style = "fg:color_env"
+format = '[( $symbol( $profile)(\($region\)) )]($style)'
+
+[custom.gcloud]
+command = "starship module gcloud"
+when = '[ "${STARSHIP_COCKPIT_GCLOUD_ENABLED:-false}" = "true" ]'
+format = "$output"
+disabled = false
+
+[gcloud]
+symbol = "󱇶"
+style = "fg:color_env"
+format = '[( $symbol( $account)(\($project\)) )]($style)'
 disabled = false
 
 [shell]
