@@ -1,6 +1,11 @@
-# Zsh and Docker CLI autocompletion
+# Zsh and Docker CLI autocompletion (cached daily for faster startup)
 fpath=(~/.docker/completions $fpath)
-autoload -Uz compinit && compinit
+autoload -Uz compinit
+if [ ! -f ~/.zcompdump ] || [ -n "$(find ~/.zcompdump -mtime +1 2>/dev/null)" ]; then
+  compinit
+else
+  compinit -C
+fi
 
 # Command history
 HISTFILE=~/.zsh_history
@@ -14,10 +19,19 @@ export PATH="/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOM
 # Rust / Cargo
 [ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
 
-# NVM
+# NVM (lazy-loaded for faster shell startup)
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+if [ -s "$NVM_DIR/nvm.sh" ]; then
+  _load_nvm() {
+    unset -f nvm node npm npx _load_nvm
+    \. "$NVM_DIR/nvm.sh"
+    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+  }
+  nvm()  { _load_nvm && nvm "$@"; }
+  node() { _load_nvm && node "$@"; }
+  npm()  { _load_nvm && npm "$@"; }
+  npx()  { _load_nvm && npx "$@"; }
+fi
 
 # Plugins (macOS Homebrew & Linux system paths)
 for _zsh_plugin in \
