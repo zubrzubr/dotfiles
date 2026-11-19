@@ -57,3 +57,7 @@ On Linux, install the equivalent packages with your distro's package manager (`z
 Machine-specific settings and credentials belong in untracked local files:
 - `~/.zshrc.local` — sourced at the end of `.zshrc`
 - `~/.gitconfig.local` — included at the top of `.config/git/config` (e.g., `[user]` name & email)
+
+## Acknowledgements
+
+Almost the entire Starship configuration (`starship/.config/starship.toml`) is based on [smithumble/starship-cockpit](https://github.com/smithumble/starship-cockpit) - huge thanks to the author!
