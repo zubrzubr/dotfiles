@@ -39,7 +39,7 @@ $line_break\
 $character\
 """
 
-palette = 'default'
+palette = 'gruvbox_dark'
 
 [palettes.default]
 

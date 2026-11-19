@@ -19,9 +19,31 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
-# Plugins
-source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# Plugins (macOS Homebrew & Linux system paths)
+for _zsh_plugin in \
+  /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh \
+  /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh \
+  /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh \
+  /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh \
+  /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh \
+  /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh; do
+  [ -f "$_zsh_plugin" ] && source "$_zsh_plugin"
+done
+unset _zsh_plugin
+
+# CLI tool integrations
+command -v fzf >/dev/null 2>&1 && source <(fzf --zsh)
+if command -v eza >/dev/null 2>&1; then
+  alias ls="eza --icons"
+  alias ll="eza -la --icons --git"
+fi
+if command -v bat >/dev/null 2>&1; then
+  alias cat="bat --paging=never"
+elif command -v batcat >/dev/null 2>&1; then
+  alias bat="batcat"
+  alias cat="batcat --paging=never"
+fi
+
 # Starship (always at the end)
 eval "$(starship init zsh)"
 

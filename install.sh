@@ -10,11 +10,14 @@ fi
 
 echo "2. Preparing config directories and backing up existing configs..."
 mkdir -p ~/.config ~/.config/git ~/.config/nvim
-for cfg in ~/.zshrc ~/.config/starship.toml ~/.config/git/config ~/.config/git/ignore; do
+for cfg in ~/.zshrc ~/.config/starship.toml ~/.config/git/config ~/.config/git/ignore ~/.config/nvim/init.lua ~/.config/nvim/lazy-lock.json; do
   if [ -f "$cfg" ] && [ ! -L "$cfg" ]; then
     mv "$cfg" "$cfg.bak"
   fi
 done
+if [ -d ~/.config/nvim/lua ] && [ ! -L ~/.config/nvim/lua ]; then
+  mv ~/.config/nvim/lua ~/.config/nvim/lua.bak
+fi
 
 echo "3. Creating symlinks in $HOME via GNU Stow..."
 cd "$DOTFILES_DIR"
