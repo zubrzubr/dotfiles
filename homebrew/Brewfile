@@ -12,6 +12,7 @@ brew "node"
 brew "ripgrep"
 brew "starship"
 brew "stow"
+brew "stylua"
 brew "tree-sitter-cli"
 brew "uv"
 
