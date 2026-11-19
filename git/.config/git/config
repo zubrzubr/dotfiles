@@ -1,0 +1,17 @@
+[include]
+    path = ~/.gitconfig.local
+
+[core]
+    editor = nvim
+    pager = delta
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    navigate = true
+    side-by-side = true
+    syntax-theme = gruvbox-dark
+
+[init]
+    defaultBranch = main
