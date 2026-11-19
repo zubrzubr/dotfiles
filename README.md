@@ -19,7 +19,7 @@ Personal cross-platform dotfiles for **macOS** and **Linux** (KDE Plasma & GNOME
 Clone the repository and run the install script:
 
 ```bash
-git clone <your-repo-url> ~/Projects/dotfiles
+git clone --recurse-submodules <your-repo-url> ~/Projects/dotfiles
 cd ~/Projects/dotfiles
 ./install.sh
 ```
@@ -27,7 +27,7 @@ cd ~/Projects/dotfiles
 What `install.sh` does:
 1. Installs packages from `homebrew/Brewfile` if `brew` is available.
 2. Backs up existing non-symlink configs (`~/.zshrc`, `~/.config/starship.toml`, `~/.config/git/*`, `~/.config/nvim/*`) to `*.bak`.
-3. Symlinks `zsh`, `starship`, `nvim`, and `git` into `$HOME` using `stow`.
+3. Initializes git submodules (`nvim/.config/nvim`) and symlinks `zsh`, `starship`, `nvim`, and `git` into `$HOME` using `stow` (ignoring `.git`).
 4. Creates `~/.zshrc.local` and `~/.gitconfig.local` if missing.
 
 ### Linux Prerequisites

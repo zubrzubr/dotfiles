@@ -19,9 +19,10 @@ if [ -d ~/.config/nvim/lua ] && [ ! -L ~/.config/nvim/lua ]; then
   mv ~/.config/nvim/lua ~/.config/nvim/lua.bak
 fi
 
-echo "3. Creating symlinks in $HOME via GNU Stow..."
+echo "3. Initializing submodules and creating symlinks in $HOME via GNU Stow..."
 cd "$DOTFILES_DIR"
-stow -v -t ~ zsh starship nvim git
+git submodule update --init --recursive
+stow -v --ignore='\.git$' -t ~ zsh starship nvim git
 
 echo "4. Creating local override files if missing..."
 touch ~/.zshrc.local ~/.gitconfig.local
